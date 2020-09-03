@@ -5,6 +5,21 @@ The purpose of this beamer theme is to provide a beamer template for presentatio
 ** Installation
 To use the theme, download the =.sty= files and the =img= folder by the method of your choice (download the archive directly or using =git clone=).
 
+You can also try the theme by compiling the provided =test.tex= file. The file provides details on how to use the theme in comments.
 
 ** Usage
+
+*** Colors
+You can inverse the colors of the title page by using the =reversed= option of the theme. By default the background is blue and fonts are in white.
+#+BEGIN_SRC latex
+\usetheme{uge}           % background blue, foreground white
+\usetheme[reversed]{uge} % background white, foreground blue
+#+END_SRC
+
+*** 16/9 or 4/3 formats
+The theme has been tested on either =16:9= or =4:3= formats (by default). 
+To get a =16:9= format, you can customize the =aspectratio= option parameter in the document class:
+#+BEGIN_SRC latex
+\documentclass[aspectratio=169]{beamer}
+#+END_SRC
 
