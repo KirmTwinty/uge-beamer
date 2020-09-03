@@ -1,0 +1,10 @@
+* UGE-beamer theme
+** Introduction
+The purpose of this beamer theme is to provide a beamer template for presentation for Université Gustave Eiffel.
+
+** Installation
+To use the theme, download the =.sty= files and the =img= folder by the method of your choice (download the archive directly or using =git clone=).
+
+
+** Usage
+

@@ -1,0 +1,72 @@
+\documentclass[compress, aspectratio=169]{beamer}
+
+\usetheme{uge}
+
+\title{Title of the presentation, that can spread over multiple lines, made for long titles.}
+\date{6 novembre 2019}
+\conference{$27^{\textrm{ème}}$ congrès Société Française de Thermique}
+
+\author[author1@univ-some.com]{Author 1}{1}
+\author[author2@univ-some.com]{Author 2}{1}
+\author[author3@univ-else.com]{Author 3}{1,2}
+\author[author4@univ-else.com]{Author 4}{2}
+\author[]{Author 5}{2}
+\affil[1]{University of Somewhere, in some country}
+\affil[2]{University of Elsewhere, in another country}
+
+
+%\author[opt1]{Author 1}[opt2]
+%\author[test]{Author 2}[ljdf]
+%\author[2]{Author 3}[dmf]
+%\subtitle{Subtitle of the presentation}
+%% Redefine the logo
+%\titlelogo[width=3cm,keepaspectratio]{img/logo_white.eps}
+\begin{document}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{First section}
+\subsection{1}
+\begin{frame} 
+\frametitle{There Is No Largest Prime Number} 
+\framesubtitle{The proof uses \textit{reductio ad absurdum}.} 
+\begin{theorem}
+There is no largest prime number. \end{theorem} 
+\begin{enumerate} 
+\item<1-| alert@1> Suppose $p$ were the largest prime number. 
+\item<2-> Let $q$ be the product of the first $p$ numbers. 
+\item<3-> Then $q+1$ is not divisible by any of them. 
+\item<1-> But $q + 1$ is greater than $1$, thus divisible by some prime
+number not in the first $p$ numbers.
+\end{enumerate}
+\end{frame}
+
+\subsection{2}
+\begin{frame}{A longer title}
+\begin{itemize}
+\item one
+\begin{itemize}
+  \item two
+  \begin{itemize}
+  \item three
+  \end{itemize}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\section{Second section}
+\subsection{3}
+\begin{frame}{Another slide}
+Some blabla
+\end{frame}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% End:
