@@ -26,6 +26,7 @@ UGE's graphical guidelines ask to use =TT Norms®=. However those fonts appear t
 Therefore, the guidelines recommend to use =Tahoma= when =TT Norms®= is not available. However, =Tahoma= was made for on-screen reading and is even worst than =TT Norms®= for equations. 
 As a consequence, by default, the beamer theme uses =Tahoma= for text and =Computer Modern Serif= for maths equation, used by LaTeX by defaults.
 
+*** Inria Fonts (optional)
 Another way though is to use the [[https://black-foundry.com/blog/inria-serif-and-inria][Inria]] fonts, under an =Open Font License=. 
 **** _Method 1:_ download and install the fonts on your machine
 Download the fonts and install them on your machine (usually, you just have to open the =.ttf= fonts files). Then, use the option =inriafonts= in the theme: 
