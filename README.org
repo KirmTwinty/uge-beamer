@@ -3,12 +3,24 @@
 The purpose of this beamer theme is to provide a beamer template for presentation for Université Gustave Eiffel.
 The presentation is tested and must be compiled with =XeTeX=.
 
+[[https://github.com/KirmTwinty/uge-beamer/raw/master/screenshot.png]]
+
 ** Installation
 To use the theme, download the =.sty= files and the =img= folder by the method of your choice (download the archive directly or using =git clone=).
 
 You can also try the theme by compiling the provided =test.tex= file. The file provides details on how to use the theme in comments.
 
 ** Usage
+*** Authors and affiliation
+Authors are added successively to make it easier to read, with the following syntax: 
+#+BEGIN_SRC latex
+\author[mail address (optional)]{Author Name}{Affiliation index}
+#+END_SRC
+Then, the affiliation are also added recursively: 
+#+BEGIN_SRC latex
+\affil[affiliation number]{Name of affiliation}
+#+END_SRC
+
 *** Fonts
 UGE's graphical guidelines ask to use =TT Norms®=. However those fonts appear to be non-free and not well adapted for equations.
 Therefore, the guidelines recommend to use =Tahoma= when =TT Norms®= is not available. However, =Tahoma= was made for on-screen reading and is even worst than =TT Norms®= for equations. 
