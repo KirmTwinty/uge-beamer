@@ -14,7 +14,11 @@
 \RequirePackage{ifthen}
 
 \newboolean{reversed}\setboolean{reversed}{false}
+\newboolean{inriafonts}\setboolean{inriafonts}{false}
+\newboolean{inriafonts@local}\setboolean{inriafonts@local}{false}
 \DeclareOptionBeamer{reversed}{\setboolean{reversed}{true}}
+\DeclareOptionBeamer{inriafonts}{\setboolean{inriafonts}{true}}
+\DeclareOptionBeamer{inriafonts@local}{\setboolean{inriafonts@local}{true}}
 
 \ProcessOptionsBeamer
 
