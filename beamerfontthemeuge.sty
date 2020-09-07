@@ -68,8 +68,13 @@
     \iffontsavailable{Tahoma}{
       \setsansfont{Tahoma}[Scale=MatchLowercase]
     }{
+      \iffontsavailable{Tahoma}{
+      \setsansfont{Tahoma}[Scale=MatchLowercase]
+      }
       \PackageWarning{beamerthemeuge}{%
         Tahoma font not found.
+        You can put 'Tahoma.ttf' in the root directory so I can find it.
+        Using the defaults beamer font.
       }
     }
   }
