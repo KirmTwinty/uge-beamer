@@ -36,7 +36,7 @@ Download the fonts and install them on your machine (usually, you just have to o
 **** _Method 2:_ no font install
 Download the fonts and place the files =InriaSans-Regular.ttf= and =InriaSerif-Regular.ttf= in the same directory than the =.sty= files and your main =.tex= file. Then, use the option =inriafonts= in the theme: 
 #+BEGIN_SRC latex
-\usetheme[inriafonts@local]{uge} % Use Inria fonts, make sure to have the ttf files in the same directory.
+\usetheme[inriafonts]{uge} % Use Inria fonts, make sure to have the ttf files in the same directory.
 #+END_SRC 
 
 
