@@ -68,20 +68,21 @@
     \iffontsavailable{Tahoma}{
       \setsansfont{Tahoma}[Scale=MatchLowercase]
     }{
-      \iffontsavailable{Tahoma}{
-      \setsansfont{Tahoma}[Scale=MatchLowercase]
-      }
-      \PackageWarning{beamerthemeuge}{%
-        Tahoma font not found.
-        You can put 'Tahoma.ttf' in the root directory so I can find it.
-        Using the defaults beamer font.
+      \iffontsavailable{[Tahoma.ttf]}{
+        \setsansfont{[Tahoma.ttf]}[Scale=MatchLowercase]
+      }{
+        \PackageWarning{beamerthemeuge}{%
+          Tahoma font not found. 
+          You can put 'Tahoma.ttf' in the root directory so I can find it. 
+          Using the defaults beamer font.%
+        }
       }
     }
   }
 }{%
-  \PackageWarning{beamerthememetropolis}{%
+  {\PackageWarning{beamerthemeuge}{%
     You need to compile with XeLaTeX or LuaLaTeX to use the Tahoma or InriaFonts%
-  }
+  }}
 }
 
 
