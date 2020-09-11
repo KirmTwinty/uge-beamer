@@ -113,5 +113,28 @@
 }
 \newcommand{\insertauthors}{\@authorsString}
 \newcommand{\insertaffiliation}{\@affilsString}
+
+\newenvironment{thanks-frame}[1][]{
+  \makeatletter
+  \setbeamertemplate{footline}{}
+  \setbeamertemplate{background}{
+    \begin{tikzpicture}
+      \def\w{\the\paperwidth};
+      \def\h{\the\paperheight};
+      \useasboundingbox (0,0) rectangle(\w,\h);
+      \fill[color=\titleBackground] (0,0) rectangle (\w,\h);
+      % \fill[color=white] (\titlePatternX,0) rectangle (\w, \h);
+      \node[anchor=south west] (logo) at (0.05*\w,0.05*\h) {\inserttitlelogo};
+      \node[anchor=south east] (pattern) at (\w+3, -.1) {\includegraphics[height=\h,width=\titlePatternWidth]{\titlePattern}};
+
+      % \ifnum\thepage>1\relax%
+      % \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      % \fi
+    \end{tikzpicture}
+  }
+\setbeamertemplate{headline}%No navigation
+{}
+\begin{frame}#1}{\end{frame}}
+
 %%
 %% End of file `beamerthemeuge.sty'.
