@@ -21,6 +21,14 @@ Then, the affiliation are also added recursively:
 \affil[affiliation number]{Name of affiliation}
 #+END_SRC
 
+*** Thanks-frame
+You can add a "thank-you" frame by using the =\thanksframe= command. By default, the title page template is taken with the title, subtitle, your "thank-you" message, conference name and date. 
+For instance:
+#+BEGIN_SRC: latex
+\thanksframe{{\huge\textbf{Thank you!}}}
+#+END_SRC
+
+
 *** Fonts
 UGE's graphical guidelines ask to use =TT Norms®=. However those fonts appear to be non-free and not well adapted for equations.
 Therefore, the guidelines recommend to use =Tahoma= when =TT Norms®= is not available. However, =Tahoma= was made for on-screen reading and is even worst than =TT Norms®= for equations. 
