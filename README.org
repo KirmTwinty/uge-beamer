@@ -11,6 +11,15 @@ To use the theme, download the =.sty= files and the =img= folder by the method o
 You can also try the theme by compiling the provided =test.tex= file. The file provides details on how to use the theme in comments.
 
 ** Usage
+*** Replacing logos
+If you want to replace the logos images by your own (for example two logos side by side), you can do it by using this command before =\begin{document}=:
+
+#+BEGIN_SRC latex
+\titlelogo[width=2cm]{img/mycustomlogo-title.eps}   % Replace the logo in the title page
+\footerlogo[width=2cm]{img/mycustomlogo-footer.eps} % Replace the logo in all other pages (footer)
+#+END_SRC
+
+
 *** Authors and affiliation
 Authors are added successively to make it easier to read, with the following syntax: 
 #+BEGIN_SRC latex
