@@ -34,7 +34,18 @@ Then, the affiliation are also added recursively:
 You can add a "thank-you" frame by using the =\thanksframe= command. By default, the title page template is taken with the title, subtitle, your "thank-you" message, conference name and date. 
 For instance:
 #+BEGIN_SRC: latex
-\thanksframe{{\huge\textbf{Thank you!}}}
+{\thanksframe{{\huge\textbf{Thank you!}}}}
+#+END_SRC
+
+If you want to add appendices, do not forget to add the brackets ={...}= surrounding the =\thanksframe= command. This will make the thanksframe environment not propagating to the appendices.
+
+*** Appendices
+
+To remove the numbering from the appendices frame, you can add the =noframenumbering= option to the frame:
+#+BEGIN_SRC: latex
+\begin{frame}[noframenumbering]
+...
+\end{frame}
 #+END_SRC
 
 
