@@ -1,6 +1,6 @@
 * UGE-beamer theme
 
-[[file:https://img.shields.io/github/license/KirmTwinty/uge-beamer]]
+[[https://img.shields.io/github/license/KirmTwinty/uge-beamer]]
 
 The purpose of this beamer theme is to provide a beamer template for presentation for Université Gustave Eiffel.
 The presentation is tested and must be compiled with =XeTeX=.
