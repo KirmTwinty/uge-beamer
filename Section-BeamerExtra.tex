@@ -1,0 +1,85 @@
+\sectionpic{BeamerExtra}{\PathSO/Logos/logo-eps-converted-to.pdf}
+	
+		\begin{frame}[fragile]{Backup slides}
+			Sometimes, it is useful to add slides at the end of your presentation to
+			refer to during audience questions.
+			
+			The best way to do this is to include the \verb|appendixnumberbeamer|
+			package in your preamble and call \verb|\appendix| before your backup slides.
+			
+			\themename will automatically turn off slide numbering and progress bars for
+			slides in the appendix.
+		\end{frame}
+		
+		\begin{frame}[fragile, label=previouSlide]{Section With Pictures}
+			As the following command indicates, it is possible to include pictures under a section title:
+			\begin{verbatim}			
+				\sectionpic{BeamerExtra}{\PathSO/Logos/logo-eps-converted-to.pdf}		
+			\end{verbatim}
+		\end{frame}
+		
+	\section{Things good to know about Beamer (not BeamerExtra)}
+		
+		\begin{frame}[fragile]
+			\frametitle{link to Hidden slide}
+			
+			Thanks to Beamer, you can create buttons to just to hidden slides that are in the appendices
+			\begin{verbatim}			
+				\begin{frame}[label=<originalSlide>, noframenumbering]	
+				\hyperlink{<hiddenSlide>}{\beamerbutton{NameOfButton}}
+			\end{verbatim}
+			
+			Don't forget to create a button to come back also!
+			
+			For example :
+			\hyperlink{previouSlide}{\beamerbutton{back to previous slide !}}
+		\end{frame}
+		
+		\begin{frame}<all:1>[fragile]
+			\frametitle{Print extended version}
+			\framesubtitle{1}
+			
+			This slide will always be printed with 
+			\begin{verbatim}			
+				\begin{frame}<handout:1|beamer:1>	or \begin{frame}<all:0>
+			\end{verbatim}
+			
+			while the following code will never appears
+			\begin{verbatim}			
+				\begin{frame}<handout:0|beamer:0>	or \begin{frame}<all:0>	
+			\end{verbatim}
+		\end{frame}
+		
+		\begin{frame}<handout:0|beamer:1>[fragile]
+			\frametitle{Print extended version}
+			\framesubtitle{2}
+			
+			This frame will appear with
+			\begin{verbatim}			
+				\documentclass[aspectratio=169, 10pt]{beamer}
+				\begin{frame}<handout:0|beamer:1>
+			\end{verbatim}
+			
+			BUT the following will not appear
+			\begin{verbatim}			
+					\documentclass[aspectratio=169, 10pt]{beamer} % requires handout to appear
+					\begin{frame}<handout:1|beamer:0>
+			\end{verbatim}
+		\end{frame}
+				
+		\begin{frame}<handout:1|beamer:0>[fragile]
+			\frametitle{Print extended version}
+			\framesubtitle{2}
+			
+			This frame will appear with
+			\begin{verbatim}			
+				\documentclass[aspectratio=169, 10pt, handout]{beamer}
+				\begin{frame}<handout:1|beamer:0>
+			\end{verbatim}
+			
+			BUT the following will not appear
+			\begin{verbatim}			
+					\documentclass[aspectratio=169, 10pt, handout]{beamer} % requires to remove handout to appear
+					\begin{frame}<handout:0|beamer:1>
+			\end{verbatim}
+		\end{frame}

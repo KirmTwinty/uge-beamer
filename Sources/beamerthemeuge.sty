@@ -33,13 +33,13 @@
 % Color
   \ifthenelse{\boolean{reversed}}{
     \def\titleBackground{white}
-    \def\titleLogo{img/logo.eps}
-    \def\titlePattern{img/pattern_reversed.eps}
+    \def\titleLogo{Logos/logo.eps}
+    \def\titlePattern{Logos/pattern_reversed.eps}
     \def\titlePageColor{uge-primary}
 }{
     \def\titleBackground{uge-primary}
-    \def\titleLogo{img/logo_white.eps}
-    \def\titlePattern{img/pattern.eps}
+    \def\titleLogo{Logos/logo_white.eps}
+    \def\titlePattern{Logos/pattern.eps}
     \def\titlePageColor{white}
 }
 
@@ -69,7 +69,7 @@
         \noexpand\includegraphics[#1]{#2}%
       \fi}%
     }%
-  \footerlogo[height=10pt]{./img/logo.eps}}
+  \footerlogo[height=10pt]{./Logos/logo.eps}}
 
 %% Define the pattern
 {\newcommand\pattern[2][]{%
@@ -78,7 +78,7 @@
         \noexpand\includegraphics[#1]{#2}%
       \fi}%
     }%
-  \pattern[width=3cm,keepaspectratio]{./img/pattern.eps}}
+  \pattern[width=3cm,keepaspectratio]{./Logos/pattern.eps}}
 
 \newcommand\frameoffset{1}
 

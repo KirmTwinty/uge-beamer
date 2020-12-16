@@ -1,0 +1,159 @@
+% !TEX TS-program = pdflatex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_GB
+%==============================================================================
+%== template for LaTeX presentation ===========================================
+%==============================================================================
+\providecommand{\langue}{english}		% english, french
+\providecommand{\PathR}{./Resources/}  % Path to  Ressources folders
+\providecommand{\PathSO}{./Sources/} 	% Path to Sources folders
+\providecommand{\PathS}{./Supplies/} 	% Path to Supplies folders
+\providecommand{\BuildTrigger}{buildnew} % Trigger to build or not standalone parts.
+
+\makeatletter
+	\def\input@path{{\PathSO}} 		% to be able to find package in ressource folders.
+	\ifx\c@levelstanda\undefined 	% to create a newcounter if it doesnt exists.
+		\newcounter{levelstanda}
+	\else
+		{}% it already exist
+	\fi
+\makeatother
+
+\RequirePackage[l2tabu, orthodox]{nag}	% Help to prevent buggus with warnings
+\documentclass[notheorems, noamsthm, aspectratio=169, 10pt]{beamer}
+	% use this instead for 16:9 aspect ratio: [aspectratio=169]
+	% supported acpect ratios  1610  169 149 54 43 (deault) 32
+	%
+	% The option "handout, " allows to the print the hidden slides maked by <handout:1|beamer:0>[noframenumbering].
+	% 
+	% the option "notes=only, " to print only the notes !
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        DEFAULT PACKAGES
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        BEAMER OPTIONS
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+	% Include some custum modifications but quite universal,
+	% like set the size appendices or hidden slides...
+	\usetheme{BeamerExtra}
+
+%	% Metropolis Theme
+%	\usetheme{metropolis}
+%		\metroset{
+%			% titleformat=%regular, smallcaps, allsmallcaps, allcaps
+%			% titleformat plain= %regular, smallcaps, allsmallcaps, allcaps
+%			% sectionpage= %none, simple, progressbar
+%			subsectionpage= progressbar, %none, simple, progressbar
+%			numbering=fraction, %none, counter, fraction
+%			progressbar= foot,%none, head, frametitle, foot
+%			block= fill,%transparent,% fill,%
+%			background= light, %dark, %light, %
+%		}
+%	% Change progress bar size and redefine some colors.
+%	\usetheme{MetropolisBeamerExtra}
+%
+%	% UGE Style
+%	\ifratio{169}{\usetheme{UGE169}}{\usetheme{ETHbeamer43}}	
+%		
+	% Add my personal progress bar
+%	\usetheme{MyProgressBar}
+%		\colorlet{ColorProgBar}{red!82!green!42!blue!100} % from MetropolisBeamerExtra
+
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%        LOADING MY PACKAGES
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	\newcommand{\Pathbasebib}{\PathR/Presentation.bib}
+%	\newcommand{\PathSymbolsEntries}{\PathR/UsersSymbolsAcronyms}%.bib
+%	\def\OSvar{linux} % windows, mac, linux
+%
+%	\input{\PathR/UsersPackagesDefs.tex}
+%	\input{\PathR/UsersMathsCommands.tex}
+	
+	
+	\usepackage{booktabs}
+	\usepackage[scale=2]{ccicons}
+	\usepackage{pgfplots}
+	\usepgfplotslibrary{dateplot}
+	\newcommand{\themename}{\textbf{\textsc{Univ-Eiffel Theme}} }
+
+	% To see notes !
+	%\setbeameroption{show notes} % un-comment to see the notes in 
+	%\usepackage{pgfpages}
+	% See notes
+	%\setbeameroption{show notes on second screen=right} % Requires \usepackage{pgfpages} and pympress or pdfpc
+
+
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	PRESENTATION INFORMATION
+%-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+	
+	\title{Univ-Eiffel Template}
+	\subtitle{A modern beamer theme based}
+	\date{\today}
+	\author[romain.noel@univ-eiffel.fr]{Romain NOËL\inst{1}
+		\and Thibaud TOULLIER\inst{2}}
+	\institute[Univ. Eiffel]{\inst{1} Universtité Gustave Eiffel
+		\and \inst{2} Université Gustave Eiffel}
+	\titlegraphic{\hfill\includegraphics[height=1.5cm]{\PathS/eth_logo_kurz_pos.pdf}}
+	\logo{\includegraphics[width=1.5cm]{\PathS/inr_logo_rouge.pdf}}
+	\addtobeamertemplate{logo}{\vspace{0.72\paperheight}}{} % Top Right
+	%\addtobeamertemplate{logo}{}{\hspace{0.885\paperwidth}} % Bottom Left
+	%\addtobeamertemplate{logo}{\vspace{0.72\paperheight}}{\hspace{0.885\paperwidth}} % Top Left
+	
+
+	\hypersetup{
+		pdfpagemode = FullScreen, % afficher le pdf en plein écran
+%		pdfauthor 	= {\author},
+%		pdftitle    = {\title},%
+		%	pdfcreator 	= {},
+		pdfproducer = {LaTeX}%
+	}
+
+%\addtobeamertemplate{standout}{}{post-text}
+\setbeamertemplate{navigation symbols}[vertical]
+
+
+\begin{document}			% balise de début de la présentation
+\stepcounter{levelstanda}
+
+		% FRAME
+		{%\usebackgroundtemplate{\includegraphics[scale=0.80]{EMSE_garde.png}}
+		\begin{frame}[plain,noframenumbering]
+			\titlepage	
+			\note{Everything you want}
+		\end{frame}
+		}
+		
+		\miniframeson
+		% FRAME
+		\begin{frame}{Outline}
+		  \tableofcontents[hideallsubsections]
+		\end{frame}
+	
+	\input{./Section-Beamer.tex}
+	
+%	\input{./Section-Metropolis.tex}
+	
+		\begin{frame}[noframenumbering, allowframebreaks]{References}
+			
+%			\printbibliography[heading=none]
+			  \bibliography{\PathR/Presentation}
+			  \bibliographystyle{abbrv}
+		\end{frame}
+		
+	\appendix
+	\miniframesoff % deactive the miniframe (link to other slides)
+	
+	\input{./Section-BeamerExtra.tex}
+	
+%	\input{./Section-MyPackages.tex}
+	
+
+\addtocounter{levelstanda}{-1}
+\end{document}
