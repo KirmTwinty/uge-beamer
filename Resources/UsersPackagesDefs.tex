@@ -133,6 +133,7 @@
 %			identical-sort-action=description,% sort by description if sort value identical
 		]
 %		}
+		\glsdisablehyper
 
 %%%%---- BIBLIOGRAPHY --------------------------%%%%
 	\usepackage[%citestyle=numeric,  	% style de citation : alphabetic, numeric, 		authoryear,
@@ -149,7 +150,7 @@
 		maxcitenames=3,			% nb max de noms lors de \cite, audela "et al."
 		maxbibnames=100,		% nb max de noms dans la biblio, audela "et al."
 		defernumbers=true,		% ne pas charger toute la base de donnees, uniquement le necessaire
-		backend=bibtex			% bibtex, biber
+		backend=biber			% bibtex, biber
 	]{biblatex}
 
 %		\AtEveryBibitem{\clearfield{url}}

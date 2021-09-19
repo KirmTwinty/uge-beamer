@@ -32,7 +32,7 @@
 		\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
 	\makeatother	
 
-	
+	\renewcommand\appendixname{Appendix}
 	
 %	Sections options
 %==============================================================================
@@ -123,7 +123,7 @@
 %==============================================================================
 % \ifratio{169}{Code for 169}{Code for aspect ratio other than 169} to use it.
 \makeatletter
-\newcommand\ifratio[3]{%
+\providecommand\ifratio[3]{%
 	\ifnum#1=169%
   \ifdim\beamer@paperwidth=16.00cm\relax%
       \ifdim\beamer@paperheight=9.00cm\relax%
@@ -146,6 +146,18 @@
           #3%
       \fi%
   \fi%
+	\fi%
+}
+\providecommand\ifscreenratio[2]{%
+	\ifdim\beamer@paperwidth=16.00cm\relax%
+	\ifdim\beamer@paperheight=9.00cm\relax%
+		#1%
+	\fi%
+	\fi%
+	\ifdim\beamer@paperwidth=12.80cm\relax%
+	\ifdim\beamer@paperheight=9.60cm\relax%
+		#2%
+	\fi%
 	\fi%
 }
 \makeatother

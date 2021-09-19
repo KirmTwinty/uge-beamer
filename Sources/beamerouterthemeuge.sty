@@ -1,89 +1,49 @@
-\mode<presentation>
-\setbeamertemplate{mini frames}[box]
-\setbeamersize{text margin left=1cm,text margin right=1.5cm}
-\setbeamertemplate{headline}
-{%
-\leavevmode
-\ifnum\insertframenumber>1\relax%
-\begin{beamercolorbox}[wd=\the\paperwidth,ht=20pt]{section in head/foot}
-  \begin{tikzpicture}
-    \def\w{\the\paperwidth};
-    \def\h{\the\paperheight};
-    \def\marginX{10pt};
-    \def\marginY{10pt};
-    \useasboundingbox[](0,0) rectangle(\w,\marginY);
-    \fill[uge-cyan] (0,16pt) rectangle ({(\insertframenumber - \frameoffset - 1)/(\inserttotalframenumber-\frameoffset -1)*\w}, 20pt);
-    \node[anchor= west] at (0.1,0.3){\insertnavigation{0.85\paperwidth}};
+%% ---------------------------------------------------------------------------
+%% Copyright 2019 Thibaud TOULLIER, Romain NOËL
+%%
+%% Based on the UGE theme presentation ppt and graphical charter
+%% ---------------------------------------------------------------------------
 
-  \end{tikzpicture}
-\end{beamercolorbox}
-\fi
-\vskip-17pt% Hack: just to prevent overfull \vboxes
-}
-% Frame title
-\defbeamertemplate*{frametitle}{uge}[1][]
-{
-  \begin{beamercolorbox}[wd=\paperwidth,ht=1.5cm]{frametitle} 
-  \begin{tikzpicture}    
-    \def\w{\the\paperwidth};
-    \def\h{\the\paperheight};
-    \def\marginX{10pt};
-    \def\marginY{10pt};
-    \useasboundingbox[color=white] (\marginX,\marginY*2) rectangle (\w - \marginX,\h - \marginY);
-    \ifx\insertframesubtitle\@empty%
-        {\node[anchor=west] at (2*\marginX,3*\marginY){\usebeamerfont{frametitle}\insertframetitle};}
-        \else%
-            {\node[anchor= west] at (2*\marginX,3*\marginY){\usebeamerfont{frametitle}\insertframetitle};%
-              \node[anchor= west] at (2*\marginX,2*\marginY){\usebeamerfont{framesubtitle}\insertframesubtitle};}%
-            \fi
-  \end{tikzpicture}
-  \end{beamercolorbox}
+%\mode<presentation>
+
+%%% 
+%%% === The head- and footline. ==============================================
+
+\newcommand{\UGElogo}{%
+	\ifbool{reversedColor}{% Dark true 
+		\includegraphics[width=23.5mm]{\PathSO/Logos/UGE-logo.pdf}%
+	}{% Light
+		\includegraphics[width=23.5mm]{\PathSO/Logos/UGE-logo_white.pdf}%
+	}%
 }
 
-% Footer
-\defbeamertemplate*{footline}{uge}[1][]
-{
-  
-  %\leavevmode
-  %\vskip5pt%Margin for footnote
-  \ifnum\insertframenumber>1\relax% Not on title page
-  \hbox to \paperwidth{
-    \hbox{\hspace*{0.2cm}\insertfooterlogo}
-    \hfill
-    \hbox{\usebeamerfont{date in head/foot}
-      \insertshortdate{}
-      \hspace*{0.2cm}
-      {\the\numexpr \insertframenumber - \frameoffset} / {\the\numexpr \inserttotalframenumber - \frameoffset}
-      \hspace*{0.1cm}
-    }
-  }
+%%% Footer
+\setbeamertemplate{frame footer}{%
+	%	\insertshortdate 
+	\hfill \ 
+	\hfill \ %\insertshorttitle
+	\hfill \ %
+	\hfill \
+	\insertshortauthor \hspace{-7em}
+}%
+\addtobeamertemplate{frame footer}{}{\vspace*{-2.5ex}} % decrease space between progress bar and footer 
 
-  %\vskip5pt
-  % \begin{minipage}[t]{0.48\paperwidth}
-  %   \hbox{
-  %     \hspace{0.2cm}\includegraphics[height=10pt]{./img/logo.eps} 
-  %   }    
-  % \end{minipage}
-  % \hfill
-  % \noindent\fcolorbox{red}{gray}{\begin{minipage}[t]{0.48\paperwidth}
 
-  %     \hbox{
-  %   \begin{flushright}
-  %       \usebeamerfont{date in head/foot}\insertshortdate{} \hspace{0.2cm}
-  %       {\the\numexpr \insertframenumber - \frameoffset} / {\the\numexpr \inserttotalframenumber - \frameoffset}
-  %   \end{flushright}
-  %     }
-
-  % \end{minipage}}
-  % \hbox{%
-  %   \hspace{0.01\paperwidth}\includegraphics[height=10pt]{./img/logo.eps} 
-  %   \begin{beamercolorbox}[wd=.78\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-  %   \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
-  %   {\the\numexpr \insertframenumber - \frameoffset} / {\the\numexpr \inserttotalframenumber - \frameoffset} \hspace*{2ex} 
-  % \end{beamercolorbox}}
-% 
-  \fi
-  \vskip10pt%
-
+%%% Header
+\AtBeginDocument{% To avoid redefinition when using \metroset. Not the best style ever but I don't know how to do otherwise.
+	\setbeamercolor{frametitle}{bg=normal text.fg, fg=normal text.bg}
+	\addtobeamertemplate{frametitle}{}{%
+		\vspace*{-1.65em}\hspace*{\fill}\UGElogo\hspace{-22pt}\mbox{}%
+	}
 }
-\mode<all>
+
+%%% The sidebars.
+%%% The logo.
+%\addtobeamertemplate{logo}{}{\vspace{0.72\paperheight}}
+%%% The frame title.
+
+%\mode<all>
+
+%%
+%% End of file `beamerouterthemeuge.sty'.
+

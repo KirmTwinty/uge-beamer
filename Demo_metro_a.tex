@@ -44,44 +44,46 @@
 
 %	% Metropolis Theme
 %	\usetheme{metropolis}
-%		\metroset{
-%			% titleformat=%regular, smallcaps, allsmallcaps, allcaps
-%			% titleformat plain= %regular, smallcaps, allsmallcaps, allcaps
-%			% sectionpage= %none, simple, progressbar
-%			subsectionpage= progressbar, %none, simple, progressbar
-%			numbering=fraction, %none, counter, fraction
-%			progressbar= foot,%none, head, frametitle, foot
-%			block= fill,%transparent,% fill,%
-%			background= light, %dark, %light, %
-%		}
+%
 %	% Change progress bar size and redefine some colors.
 %	\usetheme{MetropolisBeamerExtra}
 %
 %	% UGE Style
-%	\ifratio{169}{\usetheme{UGE169}}{\usetheme{ETHbeamer43}}	
-%		
-	% Add my personal progress bar
-%	\usetheme{MyProgressBar}
-%		\colorlet{ColorProgBar}{red!82!green!42!blue!100} % from MetropolisBeamerExtra
+%	\usetheme{UGE}
+%
+%		% Apply all Metropolis setting.
+%		\metroset{
+%			% titleformat=%regular, smallcaps, allsmallcaps, allcaps
+%			sectionpage= progressbar, %none, simple, progressbar
+%			numbering=fraction, %none, counter, fraction
+%			progressbar= foot, %none, head, frametitle, foot
+%			block= fill, %transparent,% fill,%
+%			background= light, %dark, %light, %
+%		}	
+		
+	% Change color of the progress bar
+	%%%\usetheme{MyProgressBar}
+	%	\colorlet{ColorProgBar}{orange} % from MetropolisBeamerExtra
 
 
 %-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %        LOADING MY PACKAGES
 %-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-%	\newcommand{\Pathbasebib}{\PathR/Presentation.bib}
-%	\newcommand{\PathSymbolsEntries}{\PathR/UsersSymbolsAcronyms}%.bib
-%	\def\OSvar{linux} % windows, mac, linux
-%
-%	\input{\PathR/UsersPackagesDefs.tex}
-%	\input{\PathR/UsersMathsCommands.tex}
+	\newcommand{\Pathbasebib}{\PathR/Presentation.bib}
+	\newcommand{\PathSymbolsEntries}{\PathR/UsersSymbolsAcronyms}%.bib
+	\def\OSvar{linux} % windows, mac, linux
+
+	\input{\PathR/UsersPackagesDefs.tex}
+		%\input{\PathR/UsersSymbolsAcronyms.tex}
+	\input{\PathR/UsersMathsCommands.tex}
 	
 	
-	\usepackage{booktabs}
+%	\usepackage{booktabs}
 	\usepackage[scale=2]{ccicons}
-	\usepackage{pgfplots}
+%	\usepackage{pgfplots}
 	\usepgfplotslibrary{dateplot}
 	\newcommand{\themename}{\textbf{\textsc{Univ-Eiffel Theme}} }
-
+    
 	% To see notes !
 	%\setbeameroption{show notes} % un-comment to see the notes in 
 	%\usepackage{pgfpages}
@@ -97,62 +99,65 @@
 	\subtitle{A modern beamer theme based}
 	\date{\today}
 	\author[romain.noel@univ-eiffel.fr]{Romain NOËL\inst{1}
-		\and Thibaud TOULLIER\inst{2}}
-	\institute[Univ. Eiffel]{\inst{1} Universtité Gustave Eiffel
-		\and \inst{2} Université Gustave Eiffel}
-	\titlegraphic{\hfill\includegraphics[height=1.5cm]{\PathS/eth_logo_kurz_pos.pdf}}
+		\and Thibaud TOULLIER\inst{2} \and Romain NOËL\inst{1}\inst{2}\inst{3}}
+	\institute[Univ. Eiffel]{\inst{1} Université Gustave {Eiffel}, INRIA, COSYS/SII, I4S, F-44344 Bouguenais, France %
+		\and \inst{2} Université Gustave Eiffel \and \inst{3} INRIA Rennes}
+	\titlegraphic{\hspace*{0.52\textwidth}\vspace{1.6mm}%
+		\includegraphics[height=0.08\paperheight]{\PathS/inr_logo_rouge.pdf}}
+	
 	\logo{\includegraphics[width=1.5cm]{\PathS/inr_logo_rouge.pdf}}
 	\addtobeamertemplate{logo}{\vspace{0.72\paperheight}}{} % Top Right
 	%\addtobeamertemplate{logo}{}{\hspace{0.885\paperwidth}} % Bottom Left
 	%\addtobeamertemplate{logo}{\vspace{0.72\paperheight}}{\hspace{0.885\paperwidth}} % Top Left
-	
 
 	\hypersetup{
-		pdfpagemode = FullScreen, % afficher le pdf en plein écran
-%		pdfauthor 	= {\author},
-%		pdftitle    = {\title},%
-		%	pdfcreator 	= {},
-		pdfproducer = {LaTeX}%
+		pdfpagemode = FullScreen, % Display the presentation in fullscreen at launch.
+		pdfauthor 	= {R. NOEL}, %
+		pdfproducer = {LaTeX-Beamer} %
 	}
 
-%\addtobeamertemplate{standout}{}{post-text}
-\setbeamertemplate{navigation symbols}[vertical]
 
-
-\begin{document}			% balise de début de la présentation
+\begin{document} %
 \stepcounter{levelstanda}
 
+	% FRONTMATTER
 		% FRAME
-		{%\usebackgroundtemplate{\includegraphics[scale=0.80]{EMSE_garde.png}}
+		{%\usebackgroundtemplate{\includegraphics[scale=0.80]{\PathS/eth_logo_kurz_pos.pdf}}
 		\begin{frame}[plain,noframenumbering]
 			\titlepage	
 			\note{Everything you want}
 		\end{frame}
 		}
 		
-		\miniframeson
 		% FRAME
 		\begin{frame}{Outline}
-		  \tableofcontents[hideallsubsections]
+		    \begin{columns}[T,onlytextwidth]
+				\column{0.7\textwidth}
+                \tableofcontents[hideallsubsections]
+		    \column{0.275\textwidth}
+		        \includegraphics[width=0.99\textwidth]{\PathSO/Logos/EiffelTower.pdf}
+		    \end{columns} 
 		\end{frame}
 	
+	% MAINMATTER
 	\input{./Section-Beamer.tex}
 	
 %	\input{./Section-Metropolis.tex}
 	
+	% BACKMATTER
 		\begin{frame}[noframenumbering, allowframebreaks]{References}
 			
-%			\printbibliography[heading=none]
-			  \bibliography{\PathR/Presentation}
-			  \bibliographystyle{abbrv}
+			\printbibliography[heading=none]
+		%	  \bibliography{demo}
+		%	  \bibliographystyle{abbrv}
 		\end{frame}
 		
 	\appendix
-	\miniframesoff % deactive the miniframe (link to other slides)
+	\miniframeson % to deactive the navigation bar
 	
 	\input{./Section-BeamerExtra.tex}
 	
-%	\input{./Section-MyPackages.tex}
+	\input{./Section-MyPackages.tex}
 	
 
 \addtocounter{levelstanda}{-1}

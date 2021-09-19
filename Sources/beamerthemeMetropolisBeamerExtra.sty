@@ -20,6 +20,9 @@
 \definecolor{pale}{RGB}{255, 255, 240}
 \definecolor{dark}{HTML}{23373b}
 
+\providebool{reversedColor}
+\boolfalse{reversedColor}
+
 %% Redefine the white color as pale in the metroset call.
 \makeatletter
 \renewcommand{\metropolis@colors@dark}{%
@@ -28,6 +31,7 @@
 		bg=dark
 	}%
 	\usebeamercolor[fg]{normal text}%
+	\booltrue{reversedColor}%
 }
 \renewcommand{\metropolis@colors@light}{%
 	\setbeamercolor{normal text}{%
@@ -35,6 +39,7 @@
 		bg=pale
 	}%
 	\usebeamercolor[fg]{normal text}%
+	\boolfalse{reversedColor}%
 }
 \makeatother
 
