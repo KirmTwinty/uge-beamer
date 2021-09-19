@@ -1,4 +1,4 @@
-\section{Things brought by Good Practice in UserPackage}
+    \section{Things brought by Good Practice in UserPackage}
 	
 		\begin{frame}
 			\frametitle{Things brought by extra}
@@ -37,7 +37,7 @@
 		\begin{frame}[fragile]
 			\frametitle{Cite in the footnote}
 			
-			Some text that requires a reference\footfullciteBeamer{knuth92}. 
+			Some text that requires a reference\footfullciteBeamer{Knuth92}. 
 			Using the command\footnote{Please note that this command can be used slide-by-slide the command footnote.}
 			\begin{verbatim}			
 					\footfullciteBeamer{<bibKey>}
@@ -82,7 +82,7 @@
 			\begin{center}
 			\begin{animateinline}[loop, poster = first, controls, palindrome]{2}
 				\whiledo{\them < 21}{
-			   \begin{tikzpicture}[scale=1.25]
+			    \begin{tikzpicture}[scale=1.25]
 				   \draw[red,thick,<->] (-1,1) parabola bend (0,0) (2.1,4.41)
 				       node[below right] {$y=x^2$};
 				   \draw[loosely dotted] (-1,0) grid (4,4);
@@ -108,8 +108,8 @@
 			   \ifthenelse{\them < 21}{
 			           \newframe
 			   }{
-		   \end{animateinline}\relax % BREAK
-		   }
-			} % END \whiledo...
-			\end{center}
+            \end{animateinline}\relax % BREAK
+            }
+            } % END \whiledo...
+            \end{center}
 		\end{frame}
