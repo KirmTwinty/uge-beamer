@@ -162,6 +162,8 @@
 %% Section %%%
 %%%%%%%%%%%%%%
 
+\providebool{UGE@section}
+
 \newcommand{\UGEstandout}{%
 	\ifbool{reversedColor}{% Dark true 
 		\ifscreenratio{% 169
@@ -194,44 +196,87 @@
 	}%
 }
 
-\providebool{UGE@section}
 
 %\addtobeamertemplate{section page}{}{%
 %	\setbeamertemplate*{background}{
 %		\includegraphics[width=8.5mm]{\PathSO/Logos/pattern-eps-converted-to.pdf}
 %	}
 %}
+\providebool{sectionContent}
+\booltrue{sectionContent}
+
 \renewcommand{\metropolis@enablesectionpage}{
 	\AtBeginSection{
 		\booltrue{UGE@section}
 		\ifbeamer@inframe
-		\sectionpage
+			\sectionpage
 		\else
-		\frame[plain,c, noframenumbering]{\sectionpage}
+			\frame[plain,c, noframenumbering]{\sectionpage}
 		\fi
-		\boolfalse{UGE@section}
+%		\boolfalse{UGE@section}
 		
-		\begin{frame}[plain, noframenumbering]
-		\frametitle{Contents}
-		{\tableofcontents[currentsection,currentsubsection, 
-			hideothersubsections, 
-			sectionstyle=show/shaded,
-			]
-		}
-	\end{frame}
-}%
+		\ifbool{sectionContent}{% true
+			\begin{frame}[plain, noframenumbering]
+			\frametitle{Contents}
+				{\tableofcontents[currentsection,currentsubsection, 
+					hideothersubsections, 
+					sectionstyle=show/shaded,
+					]
+				}
+			\end{frame}
+		}{% else 
+		} % end ifbool
+	}% end atbeginsection
 
-% Subsection
-\AtBeginSubsection[]{
-	\booltrue{UGE@section}
-	\ifbeamer@inframe
-	\subsectionpage
-	\else
-	\frame[plain,c, noframenumbering]{\subsectionpage}
-	\fi
-	\boolfalse{UGE@section}
-}%
+	% Subsection
+	\AtBeginSubsection[]{
+		\booltrue{UGE@section}
+		\ifbeamer@inframe
+			\subsectionpage
+		\else
+			\frame[plain,c, noframenumbering]{\subsectionpage}
+		\fi
+%		\boolfalse{UGE@section}
+	}% end atbeginsubsection
+}% end renewcommand
+
+
+\providebool{waterMark}
+\booltrue{waterMark}
+
+\providebool{defaultWaterMark}
+\booltrue{defaultWaterMark}
+
+\BeforeBeginEnvironment{frame}{%
+	\boolfalse{UGE@section} % by default the style section is disable.
+	\ifbool{defaultWaterMark}{ %true
+		\booltrue{waterMark} % by default the watermark is enable.
+	}{ % false
+		\boolfalse{waterMark} % by default the watermark is disable.	
+	}
 }
+
+\makeatletter
+	\define@key{beamerframe}{standin}[true]{%
+		\booltrue{UGE@section}
+	}
+	\define@key{beamerframe}{nowatermark}[true]{%
+		\boolfalse{waterMark}
+	}
+	\define@key{beamerframe}{watermark}[true]{%
+		\booltrue{waterMark}
+	}
+\makeatother
+
+
+\newcommand{\UGEwatermark}{%
+	\ifscreenratio{% 169
+		\includegraphics[width=8.3mm]{\PathSO/Logos/pattern-frame.pdf}%
+	}{% 43
+		\includegraphics[width=8.3mm]{\PathSO/Logos/pattern-frame43.pdf}%
+	}%
+}
+
 
 %%% Background 
 %\setbeamertemplate{background}{%}
@@ -248,15 +293,15 @@
 			% section page
 			\UGEsection
 		}{% section=false 
-			\ifnum\thepage>1{ % title false
-				\hspace*{\imageBGoffset}%
-				\ifscreenratio{% 169
-					\includegraphics[width=8.3mm]{\PathSO/Logos/pattern-frame.pdf}%
-				}{% 43
-					\includegraphics[width=8.3mm]{\PathSO/Logos/pattern-frame43.pdf}%
-				}%
+			\ifnum\thepage>1{ % title false so "normal" frame
+				\ifbool{waterMark}{% true
+					\hspace*{\imageBGoffset}%
+					\UGEwatermark
+				}{ %false
+					% nothing
+				}
 			} \else { % title true
-				% nothing
+				% nothing handle by the title command itself
 			}% In the main.
 			\fi
 		}

@@ -63,7 +63,7 @@
 		
 	% Change color of the progress bar
 	%%%\usetheme{MyProgressBar}
-	%	\colorlet{ColorProgBar}{orange} % from MetropolisBeamerExtra
+		\colorlet{ColorProgBar}{orange} % from MetropolisBeamerExtra
 
 
 %-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -98,10 +98,10 @@
 	\title{Univ-Eiffel Template}
 	\subtitle{A modern beamer theme based}
 	\date{\today}
-	\author[romain.noel@univ-eiffel.fr]{Romain NOËL\inst{1}
-		\and Thibaud TOULLIER\inst{2} \and Romain NOËL\inst{1}\inst{2}\inst{3}}
+	\author[romain.noel@univ-eiffel.fr]{Romain NOËL\inst{1}\inst{2}\inst{3}
+		\and Thibaud TOULLIER\inst{1}\inst{2}\inst{3} \and John DOE\inst{4}}
 	\institute[Univ. Eiffel]{\inst{1} Université Gustave {Eiffel}, INRIA, COSYS/SII, I4S, F-44344 Bouguenais, France %
-		\and \inst{2} Université Gustave Eiffel \and \inst{3} INRIA Rennes}
+		\and \inst{2} Université Gustave Eiffel \and \inst{3} INRIA Rennes \and \inst{4} An Awesome Company}
 	\titlegraphic{\hspace*{0.52\textwidth}\vspace{1.6mm}%
 		\includegraphics[height=0.08\paperheight]{\PathS/inr_logo_rouge.pdf}}
 	
@@ -120,45 +120,68 @@
 \begin{document} %
 \stepcounter{levelstanda}
 
-	% FRONTMATTER
-		% FRAME
-		{%\usebackgroundtemplate{\includegraphics[scale=0.80]{\PathS/eth_logo_kurz_pos.pdf}}
-		\begin{frame}[plain,noframenumbering]
-			\titlepage	
-			\note{Everything you want}
-		\end{frame}
-		}
+% FRONTMATTER
+	% FRAME
+	{%\usebackgroundtemplate{\includegraphics[scale=0.80]{\PathS/eth_logo_kurz_pos.pdf}}
+	\begin{frame}[plain,noframenumbering]
+		\titlepage	
+		\note{Everything you want}
+	\end{frame}
+	}
+	
+	% FRAME
+	\begin{frame}{Outline}
+   \begin{columns}[T,onlytextwidth]
+			\column{0.7\textwidth}
+             \tableofcontents[hideallsubsections]
+   \column{0.275\textwidth}
+       \includegraphics[width=0.99\textwidth]{\PathSO/Logos/EiffelTower.pdf}
+   \end{columns} 
+	\end{frame}
+
+% MAINMATTER
+\input{./Parts/Section-Beamer.tex}
+
+%\input{./Parts/Section-Metropolis.tex}
+
+%\input{./Parts/Section-UGE.tex}
+
+\section{Conclusion}
+
+	\begin{frame}{Summary}
 		
-		% FRAME
-		\begin{frame}{Outline}
-		    \begin{columns}[T,onlytextwidth]
-				\column{0.7\textwidth}
-                \tableofcontents[hideallsubsections]
-		    \column{0.275\textwidth}
-		        \includegraphics[width=0.99\textwidth]{\PathSO/Logos/EiffelTower.pdf}
-		    \end{columns} 
-		\end{frame}
-	
-	% MAINMATTER
-	\input{./Parts/Section-Beamer.tex}
-	
-%	\input{./Parts/Section-Metropolis.tex}
-	
-	% BACKMATTER
-		\begin{frame}[noframenumbering, allowframebreaks]{References}
-			
-			\printbibliography[heading=none]
-		%	  \bibliography{demo}
-		%	  \bibliographystyle{abbrv}
-		\end{frame}
+		Get the source of Metropolis theme and the demo presentation from
 		
-	\appendix
-	\miniframeson % to deactive the navigation bar
+		\begin{center}\url{github.com/matze/mtheme}\end{center}
+		
+		The theme \emph{itself} is licensed under a
+		\href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
+			Attribution-ShareAlike 4.0 International License}.
+		
+		\begin{center}\ccbysa\end{center}
+	\end{frame}
 	
-	\input{./Parts/Section-BeamerExtra.tex}
+	\begin{frame}[plain]% , plain
+		\frametitle{Thank You !}
+		
+		Questions?
+	\end{frame}
+
+% BACKMATTER
+	\begin{frame}[noframenumbering, allowframebreaks]{References}
+		
+		\printbibliography[heading=none]
+	%	  \bibliography{demo}
+	%	  \bibliographystyle{abbrv}
+	\end{frame}
 	
-	\input{./Parts/Section-MyPackages.tex}
-	
+\appendix
+\miniframesoff % to deactive the navigation bar
+
+\input{./Parts/Section-BeamerExtra.tex}
+
+\input{./Parts/Section-MyPackages.tex}
+
 
 \addtocounter{levelstanda}{-1}
 \end{document}

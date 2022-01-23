@@ -12,6 +12,11 @@
 % Require Packages
 \RequirePackage{etoolbox}
 
+	% remove extra space before verbatim environement !
+	\makeatletter
+		\preto{\@verbatim}{\topsep=0pt \partopsep=0pt }
+	\makeatother
+
 % Theme settings
 
 %\mode<presentation>

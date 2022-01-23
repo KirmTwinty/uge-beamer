@@ -37,6 +37,9 @@
 %	Sections options
 %==============================================================================
 
+\providebool{sectionContent}
+\booltrue{sectionContent}
+
 %%% Make a table of content for each section
 	\setbeamertemplate{section in toc}[sections numbered]
 	\setbeamertemplate{subsection in toc}[subsections numbered]
@@ -44,14 +47,17 @@
 	
 	\AtBeginSection[]{
 		\frame[plain,c]{\sectionpage}
-		\begin{frame}[plain, noframenumbering]
-		\frametitle{Contents}
-			{\tableofcontents[currentsection,currentsubsection, 
-				hideothersubsections, 
-				sectionstyle=show/shaded,
-			]
-			}
-		\end{frame}
+		\ifbool{sectionContent}{% true
+			\begin{frame}[plain, noframenumbering]
+			\frametitle{Contents}
+				{\tableofcontents[currentsection,currentsubsection, 
+					hideothersubsections, 
+					sectionstyle=show/shaded,
+				]
+				}
+			\end{frame}
+		}{% else 
+		}
 	}
 	\AtBeginSubsection[]{
 		\frame[plain,c, noframenumbering]{\subsectionpage}
