@@ -1,64 +1,64 @@
 \section{Things brought by Good Practice in UserPackage}
-	
+
 	\begin{frame}
 		\frametitle{nTheorem}
-		
+
 		The interactions beteween ntheorem and beamer has been solved.
-		
+
 		\begin{theorem}
 			contenu...
 		\end{theorem}
-		
+
 		\begin{proof}
 			contenu...
 		\end{proof}
-	\end{frame}	
-	
+	\end{frame}
+
 	\begin{frame}
 		\frametitle{Glossaries}
-		
+
 		Here is an example of acronym using glossaries: \gls{lbm}
-		
+
 		And an example of equation in colors, the Boltzmann equation:
 		\begin{equation}
 			{\color{blue} \partial_t \gls{BoltzDist}(x,\xi,t)} + {\color{red} \xi\cdot\partial_x \gls{BoltzDist}(x,\xi,t)} + {\color{green!60!black!80} g\cdot\partial_\xi f(x,\xi,t)}
 			= {\color{yellow!80!orange!85!black} \Omega(\gls{BoltzDist},\gls{BoltzDist})}
 		\end{equation}
 		where $\gls{BoltzDist}$ is a variable defined through glossaries.
-		
+
 	\end{frame}
-		
+
 	\begin{frame}[fragile]
 		\frametitle{Cite in the footnote}
-		
-		Some text that requires a reference\footfullciteBeamer{Knuth92}. 
+
+		Some text that requires a reference\footfullciteBeamer{Knuth92}.
 		Using the command\footnote{Please note that this command can be used slide-by-slide the command footnote.}
-		\begin{verbatim}			
+		\begin{verbatim}
 				\footfullciteBeamer{<bibKey>}
 		\end{verbatim}
-		
-		The command to cite in text mode is also possible with 
-		\begin{verbatim}			
+
+		The command to cite in text mode is also possible with
+		\begin{verbatim}
 				\fullciteBeamer{<bibKey>}
 		\end{verbatim}
 		and giving \fullciteBeamer{ConcreteMath}
 	\end{frame}
-		
+
 	\begin{frame}%[fragile]
 		\frametitle{Video using media9/multimedia}
-		
+
 		\begin{columns}[c,onlytextwidth]
 		\column{0.49\textwidth}
-			The last but not least feature present is a macro simplifying the way to include videos in beamer presentation. 
-			
-			It requires to define the OS on which the pdf will be red, thanks to the command:				
+			The last but not least feature present is a macro simplifying the way to include videos in beamer presentation.
+
+			It requires to define the OS on which the pdf will be red, thanks to the command:
 			\begin{center}
 				\ttfamily
 				\textbackslash def\textbackslash OSvar\{linux\}
 			\end{center}
-			
-			Then, the video can be included with the command:\\ 
-			\begin{raggedright}
+
+			Then, the video can be included with the command:\\
+			\begin{flushleft}
 				\ttfamily
 				\textbackslash includeVideo[\% no space\\
 				\qquad width=7cm, height=5cm,\\
@@ -67,11 +67,11 @@
 				\{\textbackslash includegraphics[width, height]\%\\
 				\qquad	\{\textbackslash PathS/screenshot.png\}\%\\
 				\}\% Poster image.
-			\end{raggedright}
-			
+			\end{flushleft}
+
 		\column{0.49\textwidth}
 			Leading to the following result:
-			
+
 			\begin{figure}
 				\centering
 				\includeVideo[% no space
@@ -86,11 +86,11 @@
 			\end{figure}
 		\end{columns}
 	\end{frame}
-	
+
 	\begin{frame}[fragile]{Warning about \texttt{\textbackslash includeVideo}.}
 		Currently the method to include video using \texttt{\textbackslash includeVideo} is no longer work on Windows because \texttt{flash player} is no longer supported.
 		Up to now, this solution is still working on Linux with \texttt{okular}, \texttt{poppler} and \texttt{phonon-backend-vlc} installed.
-		
+
 		A possible workaround is to used external player rather than embedded solutions.
 		An example of external inclusion on Windows with \texttt{multimedia} package is:
 		\begin{verbatim}
@@ -100,8 +100,8 @@
 	   }{video_beamer.mp4}
 		\end{verbatim}
 	\end{frame}
-	
-	
+
+
 	\newcounter{r}
 	\newcommand{\escalar}[1]{
 	\setcounter{r}{#1 * #1 * #1}
@@ -112,12 +112,12 @@
 	\newcounter{mc}
 	%
 	\begin{frame}[fragile]{Video using animate}
-		
+
 		\vspace{-2em}
 		\begin{columns}[c,onlytextwidth]
-		\column{0.49\textwidth}	
-			
-			Another solution which is use a animation from a stack of image:				
+		\column{0.49\textwidth}
+
+			Another solution which is use a animation from a stack of image:
 			\begin{verbatim}
 				\animategraphics[autoplay, loop,
 				   	width=\textwidth, controls
@@ -156,7 +156,7 @@
 			       (0,0) parabola (0.1*\them,0.01*\themc) |- (0,0);
 			   \escalar{\them}
 			   \draw (3cm,2pt) node[above]
-			       {$\displaystyle\int\limits_0^{\them/10} \!\!x^2\mathrm{d}x = 
+			       {$\displaystyle\int\limits_0^{\them/10} \!\!x^2\mathrm{d}x =
 			           \displaystyle\frac{\ther}{3000}$};
 			   \draw[fill=orange,color=orange] (0.1*\them,0.01*\themc) circle (0.5pt);
 		   \end{tikzpicture}
