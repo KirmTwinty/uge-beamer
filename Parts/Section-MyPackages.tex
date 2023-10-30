@@ -1,4 +1,4 @@
-\section{Things brought by Good Practice in UserPackage}
+\section{Things brought by good practices in UserPackage}
 
 	\begin{frame}
 		\frametitle{nTheorem}
@@ -31,8 +31,8 @@
 	\begin{frame}[fragile]
 		\frametitle{Cite in the footnote}
 
-		Some text that requires a reference\footfullciteBeamer{Knuth92}.
-		Using the command\footnote{Please note that this command can be used slide-by-slide the command footnote.}
+		Some text that requires a reference\footfullciteBeamer{Knuth92},
+		using the command\footnote{Please note that this command can be used side-by-side the command footnote.}
 		\begin{verbatim}
 				\footfullciteBeamer{<bibKey>}
 		\end{verbatim}
@@ -49,6 +49,7 @@
 
 		\begin{columns}[c,onlytextwidth]
 		\column{0.49\textwidth}
+		
 			The last but not least feature present is a macro simplifying the way to include videos in beamer presentation.
 
 			It requires to define the OS on which the pdf will be red, thanks to the command:
@@ -57,11 +58,11 @@
 				\textbackslash def\textbackslash OSvar\{linux\}
 			\end{center}
 
-			Then, the video can be included with the command:\\
+			Then, the video can be included with the command:\\[0.25em]
 			\begin{flushleft}
 				\ttfamily
 				\textbackslash includeVideo[\% no space\\
-				\qquad width=7cm, height=5cm,\\
+				\qquad width=7cm, height=5cm,%\\
 				]\% Options \\
 				\{\textbackslash PathS/video.mp4\}\% Video File\\
 				\{\textbackslash includegraphics[width, height]\%\\
@@ -88,7 +89,9 @@
 	\end{frame}
 
 	\begin{frame}[fragile]{Warning about \texttt{\textbackslash includeVideo}.}
-		Currently the method to include video using \texttt{\textbackslash includeVideo} is no longer work on Windows because \texttt{flash player} is no longer supported.
+		\begin{alertblock}{Warning}
+			Currently the method to include video using \texttt{\textbackslash includeVideo} is no longer work on Windows because \texttt{flash player} is no longer supported.
+		\end{alertblock}
 		Up to now, this solution is still working on Linux with \texttt{okular}, \texttt{poppler} and \texttt{phonon-backend-vlc} installed.
 
 		A possible workaround is to used external player rather than embedded solutions.
@@ -139,7 +142,7 @@
 				\centering
 				\begin{animateinline}[loop, poster = first, controls, palindrome]{2}
 					\whiledo{\them < 21}{
-		    \begin{tikzpicture}[scale=1.18]
+		    \begin{tikzpicture}[scale=0.95]
 			   \draw[red,thick,<->] (-1,1) parabola bend (0,0) (2.1,4.41)
 			       node[below right] {$y=x^2$};
 			   \draw[loosely dotted] (-1,0) grid (4,4);

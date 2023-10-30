@@ -1,10 +1,12 @@
 *~
 **/auto/*
 /*.aux
+/*.fdb_latexmk
+/*.fls
 /*.log
 /*.nav
 /*.out
-/*.pdf
+# /*.pdf
 /*.snm
 /*.gz
 /*.toc
@@ -18,4 +20,4 @@
 /*.run.xml
 /*.thm
 *MyProgressBar.sty
-*Demo_metro_c.*
+*Demo_metroUGE_persoPB.*
