@@ -87,6 +87,13 @@
 \newlength{\footerOffset}% space between the footer and the bottom of the page (or the progressbar)
 \setlength{\footerOffset}{-1.5\metropolis@progressinheadfoot@linewidth}
 
+\newlength{\hposRotFooter}% horizontal position (in picture env) for the rotated footer.
+\ifscreenratio{% 169
+	\setlength{\hposRotFooter}{105pt}%
+}{% 43
+	\setlength{\hposRotFooter}{88pt}%
+}%
+
 %% Footline
 \expandafter\let\csname beamer@@tmpop@footline@plain\endcsname\relax % clear the template
 \defbeamertemplate{footline}{plain}{% redef from metropolis
@@ -115,7 +122,8 @@
 	\hfill \
 	\ifbool{rotateFooter}{% rotateFooter true
 		\begin{picture}(0,0)(0,0)
-			\put(97,13){\rotatebox{90}{\insertshortauthor}}
+			% \put(105,13){\rotatebox{90}{\insertshortauthor}}
+			\put(\hposRotFooter,13){\rotatebox{90}{\insertshortauthor}}
 		\end{picture}
 	}{% rotateFooter false
 		\insertshortauthor \hspace{-7em}
@@ -163,7 +171,7 @@
 
 % sidebar lengths
 \newlength{\sidebarRightOffset}
-\setlength{\sidebarRightOffset}{-8.5mm}
+\setlength{\sidebarRightOffset}{-8.4mm}
 % \addtolength{\sidebarRightoffset}{}
 
 % Command to add filigrane/edging in sidebar
